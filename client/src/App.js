@@ -19,6 +19,13 @@ function App() {
 
   return (
     <Router>
+      <style jsx global>{`
+        body {
+          margin: 0px;
+          padding: 0px;
+          background-color: aliceblue;
+        }
+      `}</style>
       <div>
         {/* {(typeof data.members === 'undefined') ? (
           <p>loading...</p>
