@@ -1,0 +1,23 @@
+.navbar {
+    background-color: white;
+    border-bottom: solid 1px #a0a0a0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-menu-items {
+    display: flex;
+    justify-items: flex-end;
+    margin-left: auto;
+}
+
+
+.nav-text {
+    display: flex;
+    align-items: center;
+    padding: 8px 0px 8px 16px;
+    list-style:none;
+    height: 30px;
+}
