@@ -7,7 +7,7 @@ export const NavbarData = [
   },
   {
     title: 'profile',
-    path: '/',
+    path: '/profile',
     cName: 'nav-text'
   }
 ];

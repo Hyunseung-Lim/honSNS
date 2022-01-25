@@ -1,41 +1,24 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import { HomePage } from './Pages/HomePage'
+import { ProfilePage } from './Pages/ProfilePage';
 
 function App() {
-
-  // const [data, setData] = useState("Hello from client")
-
-  // useEffect(() => {
-  //   fetch("/members").then(
-  //     res => res.json()
-  //   ).then(
-  //     data => {
-  //       setData(data)
-  //     }
-  //   )
-  // }, [])
-
   return (
     <Router>
       <style jsx global>{`
         body {
           margin: 0px;
           padding: 0px;
-          background-color: aliceblue;
+          background-color: #FAFAFA;
         }
       `}</style>
       <div>
-        {/* {(typeof data.members === 'undefined') ? (
-          <p>loading...</p>
-        ) : (
-            data.members.map((member, i) => (
-              <p key={i}>{member}</p>
-            ))
-        )} */}
-        
-        <HomePage/>
+        <Routes>
+          <Route exact path="/" element={<HomePage/>}/>
+          <Route path="/profile" element={<ProfilePage/>}/>
+        </Routes>
       </div>      
     </Router>
   )

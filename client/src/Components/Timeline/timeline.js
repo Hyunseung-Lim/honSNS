@@ -1,9 +1,18 @@
 import React from 'react';
+import { Card } from './Card/card'
+
+import './timeline.css';
 
 export const Timeline = () => {
     return(
         <>
-            HI! My name is Timeline
+            <div className='timeline'>
+                <Card/>
+
+                <Card/>
+
+                <Card/>             
+            </div>
         </>
     )
 }
