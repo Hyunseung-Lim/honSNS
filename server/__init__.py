@@ -1,12 +1,16 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__) # creates the Flask instance, __name__ is the name of the current Python module
+    CORS(app)
+    
     app.config['SECRET_KEY'] = 'hyunseung' # it is used by Flask and extensions to keep data safe
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db' #it is the path where the SQLite database file will be saved
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
     
     app.config["ALLOWED_EXTENSIONS"] = ["jpg", "png", "mov", "mp4", "mpg"]
     app.config["MAX_CONTENT_LENGTH"] = 1000 * 1024 * 1024  # 1000mb
