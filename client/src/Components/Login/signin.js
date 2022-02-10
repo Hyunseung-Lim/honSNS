@@ -2,7 +2,8 @@ import React from 'react';
 
 import './login.css';
 
-export const Signin = () => {
+export const Signin = (props) => {
+
     return(
         <>
             <div className='signinholder'>
@@ -16,7 +17,9 @@ export const Signin = () => {
                     </button>  
                 </div>
                 <div className='signupbox'>
-                    sign up
+                    <button onClick={() => props.setIsSignup()}>
+                        sign up
+                    </button>
                 </div>   
             </div>
         </>
