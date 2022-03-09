@@ -1,30 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar } from '../Components/Navbar/navbar'
+import axios from "axios";
 
-export const ProfilePage = () => {
+export const ProfilePage = (props) => {
 
-  const [data, setData] = useState("");
+  const [profileData, setProfileData] = useState({'names':null})
+  function getData() {
+    axios({
+      method: "GET",
+      url:"/profile",
+      headers: {
+        Authorization: 'Bearer ' + props.token
+      }
+    })
+    .then((response) => {
+      const res =response.data
+      res.access_token && props.setToken(res.access_token)
+      setProfileData(({
+        name: res.name
+      }))
+    }).catch((error) => {
+      if (error.response) {
+        console.log(error.response)
+        console.log(error.response.status)
+        console.log(error.response.headers)
+        }
+    })
+  }
 
   useEffect(() => {
-    fetch("/profile").then(
-      res => res.json()
-    ).then(
-      data => {
-        setData(data)
-      }
-    )
-  }, [])
+    getData()
+  }, []);
+
 
   return(
       <>
-          <Navbar/>
-          {(typeof data.name === 'undefined') ? (
+          {(profileData.name == null) ? (
           <p>loading...</p>
           ) : (
               <>
-                <p key={1}>{data.name}</p>
-                <p key={2}>{data.users}</p>
-                <p key={3}>{data.num}</p>
+                <p key={1}>{profileData.name}님</p>
               </>
           )}
       </>

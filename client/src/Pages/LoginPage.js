@@ -4,7 +4,7 @@ import { Signup } from '../Components/Login/signup'
 
 import './page.css'
 
-export const LoginPage = () => {
+export const LoginPage = (props) => {
 
     const [isSignup, setIsSignup ] = useState(false);
 
@@ -13,7 +13,7 @@ export const LoginPage = () => {
             <div className='loginpage'>
                 {
                     isSignup === false
-                    ? <Signin setIsSignup = { () => setIsSignup(true) }/>
+                    ? <Signin setIsSignup = { () => setIsSignup(true) } setToken={props.setToken}/>
                     : <Signup setIsSignin = { () => setIsSignup(false) }/>
                 }
             </div>

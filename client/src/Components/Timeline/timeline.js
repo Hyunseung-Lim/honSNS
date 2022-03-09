@@ -11,7 +11,7 @@ export const Timeline = () => {
 
                 <Card/>
 
-                <Card/>             
+                <Card/>
             </div>
         </>
     )

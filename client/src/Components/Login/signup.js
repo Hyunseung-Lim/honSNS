@@ -41,14 +41,14 @@ export const Signup = (props) => {
             if(Object.keys(errors).length === 0) {
                 axios({
                     method: 'post',
-                    url: 'http://localhost:5000/login',
+                    url: '/signup',
                     data: {
                         email: email,
                         name: name,
                         password: password
                     }
                 });
-                props.setIsSignin();           
+                props.setIsSignin();
             }
             setSubmitting(false);
         }
@@ -58,9 +58,7 @@ export const Signup = (props) => {
     return(
         <>
             <div className='signupbox'>
-                <form
-                    onSubmit={submitHander}   
-                >
+                <form onSubmit={submitHander}>
                     <input type="email" value={email} onChange={emailHandler}></input>
                     <input type="name" value={name} onChange={nameHandler}></input>
                     <input type="password" value={password} onChange={passwordHandler} autoComplete="on"></input>

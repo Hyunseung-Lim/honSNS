@@ -6,6 +6,11 @@ export const NavbarData = [
     cName: 'nav-text'
   },
   {
+    title: 'upload',
+    path: '/upload',
+    cName: 'nav-text'
+  },
+  {
     title: 'profile',
     path: '/profile',
     cName: 'nav-text'
